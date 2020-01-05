@@ -15,7 +15,7 @@ For Pangolin, see [dependencies section](https://github.com/stevenlovegrove/Pang
 - OpenGL
 - Glew (libglew-dev)
 
-For Cuda-image, see (dependencies section)[https://github.com/fwindolf/cuda-image#install]
+For Cuda-image, see [dependencies section](https://github.com/fwindolf/cuda-image#install)
 - Pangolin
 
 OpenCV3.4 required
@@ -79,7 +79,7 @@ make -j8
 
 You then can run an example appliation by `./bin/AppSfs`.
 
-If Opt fails, try building terra for your distribution, following the (provided instructions)[https://github.com/zdevito/terra#installing-terra]
+If Opt fails, try building terra for your distribution, following the [provided instructions](https://github.com/zdevito/terra#installing-terra)
 For me, it took several tries to get terra/Opt to work together. The whole setup is super fragile, so if you get it to run, do not change anything :D
 
 ## AppSfs
@@ -130,4 +130,4 @@ Options:
 
 # Thanks to Björn Haefner
 whose original code I ported to some extent. 
-You can find it at his (github)[https://github.com/BjoernHaefner/DepthSRfromShading] as well as the original (publication)[https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf]
+You can find it at his [github](https://github.com/BjoernHaefner/DepthSRfromShading) as well as the original [publication](https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf)
