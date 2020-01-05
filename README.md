@@ -7,9 +7,9 @@
 ### Dependencies
 
 Tested with:
-- llvm 6.0.0
-- clang 6.0.0
-- cuda 9.2 (V9.2.148)
+- llvm 5.0.2
+- clang 5.0.2
+- cuda 9.2.148
 
 For Pangolin, see [dependencies section](https://github.com/stevenlovegrove/Pangolin#required-dependencies):
 - OpenGL
