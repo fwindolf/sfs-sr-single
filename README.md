@@ -128,6 +128,6 @@ Options:
 ```
 
 
-# Thanks to Björn Haefner
+# Thanks to Björn Häfner
 whose original code I ported to some extent. 
 You can find it at his [github](https://github.com/BjoernHaefner/DepthSRfromShading) as well as the original [publication](https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf)
