@@ -90,10 +90,10 @@ int main(int argc, char* argv[])
     app.add_option("-p, --output_run_folder", run,
         "Out Parameter : Run folder to save output to.");
 
-    int it_theta_outer = 1;
+    int it_theta_outer = 2;
     int it_theta_inner = 3;
     int it_depth_outer = 1;
-    int it_depth_inner = 2;
+    int it_depth_inner = 3;
     app.add_option("--iter_theta_outer", it_theta_outer,
         "Iterations Parameter: Number of outer theta iterations");
     app.add_option("--iter_theta_inner", it_theta_inner,

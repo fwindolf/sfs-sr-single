@@ -20,7 +20,7 @@ struct SfsParameters
 
     // Theta update
     float gamma         = 1.0f;
-    float nu            = 1e-4f;
+    float nu            = 1e-2f;
 
     // Depth Update
     float mu            = 1e-3f;
@@ -28,7 +28,7 @@ struct SfsParameters
     // ADMM parameters
     float kappa         = 1e-4f;
     float tau           = 2.0f;
-    float tolerance     = 1e-6f; // No relative error considered
+    float tolerance     = 1e-6f; // 0: No relative error considered
     float toleranceEL   = 1e-6f;
 };
 
