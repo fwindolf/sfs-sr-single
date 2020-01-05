@@ -128,6 +128,30 @@ Options:
 ```
 
 
+## Parameterization
+
+If the output is still very close to the original depth, try:
+- Increasing the smoothing (`--optim_nu`). This will most likely lead to oversmooth depth maps, that are however visually pleasing.
+- Decrease the fidelty (`--optim_mu`). This will allow the depth to change more and not be as close to the original depth.
+- Increasing the number of iterations (`--iter_theta_inner`/`--iter_theta_outer`) for the Theta update. This will however increase the runtime a bit.
+- Decreasing the initial ADMM step size (`--admm_kappa`) or penalty (`--admm_tau`). I have not seen improvements for kappa < 1e-6. Reducing tau to <1.5 will lead to very long runtimes.
+- If the optimization stops after one iteration, disable the tolerance stopping criterion (`--admm_tolerance` to 0) or decrease the tolerances.
+
+For original images with motion blur, it might be neccessary to increase the influence of the SfS data term (`--optim_gamma`).
+
+If the albedo is under segmented, lower the jump penalty parameter `--optim_lambda`. If oversegmented, increase the parameter. Generally, low values will need more iterations to converge (as the areas with constant colors are bigger).
+
+## Dataset
+
+The dataset implementation will expect to find 
+- an image named `color.png`
+- a low resolution depth map `depth.png`
+- a (optional) mask `mask.png`
+- two (optional) files containing the camera parameters for depth and color images.
+
+If there is a `depth.exr`, `albedo.png` or `light.txt` present, you can also use the `--dataset_gt_...` parameters to use and not optimize the albedos.
+
+
 # Thanks to Björn Häfner
 whose original code I ported to some extent. 
 You can find it at his [github](https://github.com/BjoernHaefner/DepthSRfromShading) as well as the original [publication](https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf)
