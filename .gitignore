@@ -1,0 +1,8 @@
+# VSCode project files
+.vscode
+
+# CMake output
+build
+
+# Temporary files
+terra-*

@@ -1,0 +1,95 @@
+#include "core/pyramid.h"
+
+using namespace core;
+
+PyramidBase::PyramidBase(const int w, const int h, const int levels)
+    : w_(w)
+    , h_(h)
+    , levels_(levels)
+{
+}
+
+int PyramidBase::width() const { return w_; }
+int PyramidBase::height() const { return h_; }
+int PyramidBase::levels() const { return levels_; }
+
+Pyramid::Pyramid(const int w, const int h, const int levels,
+    cuimage::ResizeMode modeColor, cuimage::ResizeMode modeDepth,
+    cuimage::ResizeMode modeMask)
+    : w_(w)
+    , h_(h)
+    , levels_(levels)
+    , modeColor_(modeColor)
+    , modeDepth_(modeDepth)
+    , modeMask_(modeMask)
+{
+}
+
+/*
+Pyramid::Pyramid(Pyramid&& other)
+{
+    assert(w_ == other.w_);
+    assert(h_ == other.h_);
+    assert(levels_ == other.levels_);
+
+    frames_ = std::move(other.frames_);
+}
+*/
+
+Pyramid& Pyramid::operator=(const Pyramid& other)
+{
+    assert(w_ == other.w_);
+    assert(h_ == other.h_);
+    assert(levels_ == other.levels_);
+
+    frames_.clear();
+    frames_ = other.frames_;
+    return *this;
+}
+
+int Pyramid::width() const { return w_; }
+
+int Pyramid::height() const { return h_; }
+
+int Pyramid::levels() const { return levels_; }
+
+void Pyramid::build(FramePtr frame)
+{
+    assert(frame->color().width() == w_);
+    assert(frame->color().height() == h_);
+
+    assert(frame->depth().width() == w_);
+    assert(frame->depth().height() == h_);
+
+    assert(frame->mask().width() == w_);
+    assert(frame->mask().height() == h_);
+
+    frames_.clear();
+    frames_.push_back(frame);
+    FramePtr lastFrame = frame;
+
+    int w = w_;
+    int h = h_;
+    for (int l = 1; l < levels_; l++)
+    {
+        w = w / 2;
+        h = h / 2;
+        auto levelFrame = std::make_shared<Frame>(
+            std::move(lastFrame->color().resized(
+                w, h, lastFrame->mask(), modeColor_)),
+            std::move(lastFrame->depth().resized(
+                w, h, lastFrame->mask(), modeDepth_)),
+            std::move(
+                lastFrame->mask().resized(w, h, lastFrame->mask(), modeMask_)),
+            Camera::resizeCamera(lastFrame->camera(), w, h));
+
+        frames_.push_back(levelFrame);
+        lastFrame = levelFrame;
+    }
+}
+
+FramePtr Pyramid::at(const int level) const
+{
+    assert(level < levels_);
+    return frames_.at(level);
+}

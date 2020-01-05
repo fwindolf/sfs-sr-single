@@ -1,0 +1,16 @@
+[submodule "third_party/Opt"]
+	path = third_party/Opt
+	url = https://github.com/niessner/Opt.git
+	branch = terra1.0
+[submodule "third_party/cereal"]
+	path = third_party/cereal
+	url = https://github.com/USCiLab/cereal.git
+[submodule "third_party/Pangolin"]
+	path = third_party/Pangolin
+	url = https://github.com/stevenlovegrove/Pangolin.git
+[submodule "third_party/cuda-image"]
+	path = third_party/cuda-image
+	url = https://github.com/fwindolf/cuda-image.git
+[submodule "third_party/mLib"]
+	path = third_party/mLib
+	url = https://github.com/niessner/mLib
