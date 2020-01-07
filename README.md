@@ -157,4 +157,16 @@ whose original code I ported to some extent.
 You can find it at his [github](https://github.com/BjoernHaefner/DepthSRfromShading) as well as the original [publication](https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf)
 
 # License
-This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License with an additional request:
+
+If you make use of the library or this code in any scientific publication, please refer to this repository and cite the original paper
+```
+@inproceedings{Haefner2018CVPR,
+ title = {Fight ill-posedness with ill-posedness: Single-shot variational depth super-resolution from shading},
+ author =  {Haefner, B. and Quéau, Y. and Möllenhoff, T. and Cremers, D.},
+ booktitle = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+ year = {2018},
+ titleurl = {},
+}
+```
+
