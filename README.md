@@ -155,3 +155,6 @@ If there is a `depth.exr`, `albedo.png` or `light.txt` present, you can also use
 # Thanks to Björn Häfner
 whose original code I ported to some extent. 
 You can find it at his [github](https://github.com/BjoernHaefner/DepthSRfromShading) as well as the original [publication](https://vision.in.tum.de/_media/spezial/bib/haefner2018cvpr.pdf)
+
+# License
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
